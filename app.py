@@ -1,19 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import psycopg2, smtplib, random
+import psycopg2, smtplib, random, os
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"   # session के लिए जरूरी
+app.secret_key = os.environ.get("SECRET_KEY", "your_secret_key")   # session के लिए जरूरी
 
-# Database connection function
+# Database connection function (Render PostgreSQL)
 def get_db_connection():
-    return psycopg2.connect(
-        dbname="socialdb",
-        user="postgres",
-        password="newpassword",
-        host="localhost",
-        port="5432"
-    )
+    return psycopg2.connect(os.environ['DATABASE_URL'])
 
 # Database setup
 def init_db():
@@ -39,8 +33,8 @@ def send_otp(email):
     session['otp'] = otp
     session['email'] = email
 
-    sender = "gs5747173@gmail.com"
-    password = "khchgeuepofesqul"   # Gmail App Password
+    sender = os.environ.get("EMAIL_USER")       # Gmail address
+    password = os.environ.get("EMAIL_PASS")     # Gmail App Password
 
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.starttls()
