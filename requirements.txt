@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 Flask
 gunicorn
 Werkzeug
 psycopg2-binary
 sqlalchemy
 jinja2
+=======
+Flask
+gunicorn
+Werkzeug
+psycopg2-binary
+sqlalchemy
+jinja2
+>>>>>>> 7f25973d0c0b8f2908b70074b5e595c3a769bd4f
 requests
