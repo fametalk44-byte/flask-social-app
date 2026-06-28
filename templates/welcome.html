@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='form-validation.js') }}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="profile-card">
+    <!-- Profile Photo -->
+    <img src="{{ url_for('static', filename='uploads/gaurav.jpg') }}" class="profile-pic">
+
+    <!-- Information -->
+     <h1>WELCOME TO MY FIRST WEBSITE</h1>
+    <h2> It's Me Gaurav Sharma</h2>
+    <p><b>About Me:</b> Aspiring developer, learning Python, SQL, Data Analytics, and building my own social media platform.</p>
+    <p><b>Skills:</b> Python, Flask, SQL, Excel, Web Development</p>
+    <p><b>Email:</b> gaurav@example.com</p>
+
+    <!-- Social Links -->
+    <div class="social-links">
+        <a href="https://www.instagram.com/pndtgaurav_/" target="_blank">
+            <img src="{{ url_for('static', filename='icons/instagram.png') }}" class="icon">
+        </a>
+        <a href="https://wa.me/917409582738" target="_blank">
+            <img src="{{ url_for('static', filename='icons/whatsapp.png') }}" class="icon">
+        </a>
+    </div>
+
+    <!-- QR Code -->
+    <div class="qr-section">
+        <p>Scan to connect:</p>
+        <img src="{{ url_for('static', filename='uploads/qr.png') }}" class="qr-code">
+    </div>
+</div>
+
+</body>
+</html>

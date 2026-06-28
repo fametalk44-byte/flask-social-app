@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Social Media</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='form-validation.js') }}"></script>
+</head>
+<body>
+    <h1>Welcome to My Social Media</h1>
+    <form action="/post" method="POST">
+        <textarea name="content" placeholder="Write something..."></textarea>
+        <button type="submit">Post</button>
+    </form>
+    <h2>Feed</h2>
+    {% for post in posts %}
+        <p>{{ post }}</p>
+    {% endfor %}
+    <script src="{{ url_for('static', filename='form-validation.js') }}"></script>
+
+</body>
+</html>
